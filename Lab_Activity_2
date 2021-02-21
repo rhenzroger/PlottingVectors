@@ -1,0 +1,68 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+#Declare 5 different vectors
+Vector1 = np.array([4, 10])
+Vector2 = np.array([8, 4])
+Vector3 = np.array([4, -5])
+Vector4 = np.array([4, 13])
+Vector5 = np.array([-7, 3])
+
+#Add and subtract
+Addition = np.add(Vector1, Vector2)
+Subtraction = np.subtract(Addition, Vector3)
+print('•The Total sum of Vector 1 and Vector 2 is', Addition)
+print('•The Difference between ', Addition, ' and Vector 3 is', Subtraction)
+
+#Multiply and divide
+Multiplication = np.multiply(Vector2, Vector3)
+Division = np.divide(Multiplication, Vector4)
+print('•The Product of the Vector 2 and Vector 3 is', Multiplication)
+print('•The Quotient in', Multiplication, ' and Vector 4 is', Division)
+
+
+#Summation
+Summation = np.sum(Vector5)
+print('•The Summation of the     Vector 5 is', Summation)
+
+#Vectors and Result of Operations
+plt.title('Visual of data')
+plt.xlim(-40, 40)
+plt.ylim(-40, 40)
+
+#Squared and Square Roots
+Squaring = np.square(Vector4)
+SquareRoot = np.sqrt(Squaring)
+print('•The Square of Vector 4 is', Squaring)
+print('•The Square Root of', Squaring, 'is', SquareRoot)
+
+#Vectors
+plt.scatter(Vector1[0], Vector1[1], label='Vector 1', c='teal')
+plt.scatter(Vector2[0], Vector2[1], label='Vector 2', c='ivory')
+plt.scatter(Vector3[0], Vector3[1], label='Vector 3', c='olivedrab')
+plt.scatter(Vector4[0], Vector4[1], label='Vector 4', c='lightsalmon')
+plt.scatter(Vector5[0], Vector5[1], label='Vector 5', c='brown')
+
+#Results
+plt.scatter(Addition[0],        Addition[1],          label='Addition',         c='rebeccapurple')
+plt.scatter(Subtraction[0],     Subtraction[1],       label='Subtraction',      c='navy')
+plt.scatter(Division[0],        Division[1],          label='Division',         c='slategrey')
+plt.scatter(Multiplication[0],  Multiplication[1],    label='Multiplication',   c='lime')
+plt.scatter(Squaring[0],        Squaring[1],          label='Square',           c='navajowhite')
+plt.scatter(SquareRoot[0],      SquareRoot[1],        label='Square Root',      c='dimgray')
+
+#Resultant Vectors
+plt.quiver(Vector1[0], Vector1[1], Vector2[0], Vector2[1], angles='xy', scale_units='xy', scale=1, color='seagreen')
+plt.quiver(0, 0, Vector1[0], Vector1[1], angles='xy', scale_units='xy', scale=1, color='firebrick')
+V6 = Vector1 + Vector2
+plt.quiver(0, 0, V6[0], V6[1], angles='xy', scale_units='xy', scale=1, color='royalblue')
+
+R_mag = np.sqrt(np.sum(Vector1**2+Vector2**2))
+rise = V6[1]
+run = V6[0]
+slope = rise/run
+print('Slope is: ', slope)
+
+plt.grid()
+plt.legend()
+plt.show()
